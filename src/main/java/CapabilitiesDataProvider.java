@@ -41,7 +41,7 @@ public class CapabilitiesDataProvider
 		{{
 			new TestSettings()
 			{{
-				platformName = SELENIUM_PLATFORM;
+				platform = SELENIUM_PLATFORM;
 				browserName = SELENIUM_BROWSER;
 				browserVersion = SELENIUM_VERSION;
 			}};
