@@ -9,8 +9,8 @@ import java.util.List;
 
 public class TestSettings
 {
-	@SerializedName("os")
-	public String os;
+//	@SerializedName("os")
+//	public String os;
 
 	@SerializedName("platform")
 	public String platform;
@@ -21,14 +21,14 @@ public class TestSettings
 	@SerializedName("browser-version")
 	public String browserVersion;
 
-	@SerializedName("long-name")
-	public String browserNameLong;
-
-	@SerializedName("long-version")
-	public String browserVersionLong;
-
-	@SerializedName("url")
-	public String url;
+//	@SerializedName("long-name")
+//	public String browserNameLong;
+//
+//	@SerializedName("long-version")
+//	public String browserVersionLong;
+//
+//	@SerializedName("url")
+//	public String url;
 
 	public static Gson parser = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
