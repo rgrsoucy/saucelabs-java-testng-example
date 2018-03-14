@@ -41,7 +41,7 @@ public class TestSettings
 
 	public TestSettings fromJson(String json)
 	{
-		Type TestSettingsType = new TypeToken<List<TestSettings>>(){}.getType();
+		Type TestSettingsType = new TypeToken<TestSettings>(){}.getType();
 		return parser.fromJson(json, TestSettingsType);
 	}
 
