@@ -1,10 +1,8 @@
-import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.List;
+import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class TestSettingsTest
 {
@@ -14,7 +12,10 @@ public class TestSettingsTest
 		String SAUCE_ONDEMAND_BROWSERS = System.getenv("SAUCE_ONDEMAND_BROWSERS");
 
 		/* normally get from environment variable but load from file for testing */
-		SAUCE_ONDEMAND_BROWSERS = FileLoader.loadResourceFile("SAUCE_ONDEMAND_BROWSERS.json");
+		if (SAUCE_ONDEMAND_BROWSERS == null)
+		{
+			SAUCE_ONDEMAND_BROWSERS = FileLoader.loadResourceFile("SAUCE_ONDEMAND_BROWSERS.json");
+		}
 
 		List<TestSettings> testSettingsList = TestSettings.parseMultiCapabilities(SAUCE_ONDEMAND_BROWSERS);
 

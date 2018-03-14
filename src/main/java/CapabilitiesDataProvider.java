@@ -12,14 +12,6 @@ public class CapabilitiesDataProvider
 	{
 		String SAUCE_ONDEMAND_BROWSERS = System.getenv("SAUCE_ONDEMAND_BROWSERS");
 
-		/* normally get from environment variable but load from file for testing */
-		if (SAUCE_ONDEMAND_BROWSERS == null)
-		{
-			SAUCE_ONDEMAND_BROWSERS = FileLoader.loadResourceFile("SAUCE_ONDEMAND_BROWSERS.json");
-		}
-
-		System.out.println("SAUCE_ONDEMAND_BROWSERS:" + SAUCE_ONDEMAND_BROWSERS);
-
 		List<TestSettings> testSettingsList;
 
 		if (SAUCE_ONDEMAND_BROWSERS == null)
@@ -38,22 +30,6 @@ public class CapabilitiesDataProvider
 		String SELENIUM_PLATFORM = System.getenv("SELENIUM_PLATFORM");
 		String SELENIUM_BROWSER = System.getenv("SELENIUM_BROWSER");
 		String SELENIUM_VERSION = System.getenv("SELENIUM_VERSION");
-
-		/* normally get from environment variables but set defaults for testing */
-		if (SELENIUM_PLATFORM == null)
-		{
-			SELENIUM_PLATFORM = "Linux";
-		}
-
-		if (SELENIUM_BROWSER == null)
-		{
-			SELENIUM_BROWSER = "Firefox";
-		}
-
-		if (SELENIUM_VERSION == null)
-		{
-			SELENIUM_VERSION = "latest";
-		}
 
 		TestSettings testSettings = new TestSettings();
 		testSettings.platform = SELENIUM_PLATFORM;
