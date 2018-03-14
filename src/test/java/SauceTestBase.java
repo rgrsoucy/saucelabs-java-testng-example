@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public abstract class SauceTestBase
+public class SauceTestBase
 {
 	String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
 	String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
@@ -51,6 +51,14 @@ public abstract class SauceTestBase
 	public String getTestName(Method method)
 	{
 		return this.getClass().getSimpleName() + " " + method.getName();
+	}
+
+	public RemoteWebDriver getBrowser(TestSettings settings)
+	{
+		DesiredCapabilities capabilities = getDesiredCapabilities(settings.platform, settings.browserName, settings.browserVersion, TEST_NAME, BUILD_TAG);
+		browser.set(new RemoteWebDriver(webdriverURL, capabilities));
+
+		return browser.get();
 	}
 
 	public static URL getSauceUrl(String SAUCE_USERNAME, String SAUCE_ACCESS_KEY)
@@ -114,13 +122,5 @@ public abstract class SauceTestBase
 	public static SauceREST getSauceRestApi(String SAUCE_USERNAME, String SAUCE_ACCESS_KEY)
 	{
 		return new SauceREST(SAUCE_USERNAME, SAUCE_ACCESS_KEY);
-	}
-
-	public RemoteWebDriver getBrowser(TestSettings settings)
-	{
-		DesiredCapabilities capabilities = getDesiredCapabilities(settings.platform, settings.browserName, settings.browserVersion, TEST_NAME, BUILD_TAG);
-		browser.set(new RemoteWebDriver(webdriverURL, capabilities));
-
-		return browser.get();
 	}
 }
