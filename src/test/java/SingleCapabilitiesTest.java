@@ -7,7 +7,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SingleCapabilitiesTest extends SauceTestBase
 {
 	// expects SELENIUM_PLATFORM, SELENIUM_BROWSER, SELENIUM_VERSION environment variables to be set
-	@Ignore@Test(dataProviderClass = CapabilitiesDataProvider.class, dataProvider = "getSingleTestSettings")
+	@Ignore
+	@Test(dataProviderClass = CapabilitiesDataProvider.class, dataProvider = "getSingleTestSettings")
 	public void simpleTest(TestSettings settings)
 	{
 		System.out.println("got settings: " + settings);
