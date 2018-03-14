@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SauceTestBase
+public abstract class SauceTestBase
 {
 	String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
 	String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
