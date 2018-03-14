@@ -7,13 +7,16 @@ import java.util.List;
 
 public class CapabilitiesDataProvider
 {
-	@DataProvider(name = "getMultipleBrowserSettings", parallel = true)
-	public Iterator<Object> getMultipleBrowserSettings() throws IOException
+	@DataProvider(name = "getMultipleTestSettings", parallel = true)
+	public Iterator<Object> getMultipleTestSettings() throws IOException
 	{
 		String SAUCE_ONDEMAND_BROWSERS = System.getenv("SAUCE_ONDEMAND_BROWSERS");
 
 		/* normally get from environment variable but load from file for testing */
-		SAUCE_ONDEMAND_BROWSERS = FileLoader.loadResourceFile("SAUCE_ONDEMAND_BROWSERS.json");
+		if (SAUCE_ONDEMAND_BROWSERS == null)
+		{
+			SAUCE_ONDEMAND_BROWSERS = FileLoader.loadResourceFile("SAUCE_ONDEMAND_BROWSERS.json");
+		}
 
 		System.out.println("SAUCE_ONDEMAND_BROWSERS:" + SAUCE_ONDEMAND_BROWSERS);
 
@@ -21,7 +24,7 @@ public class CapabilitiesDataProvider
 
 		if (SAUCE_ONDEMAND_BROWSERS == null)
 		{
-			return getSingleBrowserSettings();
+			return getSingleTestSettings();
 		}
 
 		testSettingsList = TestSettings.parseMultiCapabilities(SAUCE_ONDEMAND_BROWSERS);
@@ -29,23 +32,37 @@ public class CapabilitiesDataProvider
 		return convertToTestNGDataProvider(testSettingsList);
 	}
 
-	@DataProvider(name = "getSingleBrowserSettings", parallel = true)
-	public Iterator<Object> getSingleBrowserSettings()
+	@DataProvider(name = "getSingleTestSettings", parallel = true)
+	public Iterator<Object> getSingleTestSettings()
 	{
 		String SELENIUM_PLATFORM = System.getenv("SELENIUM_PLATFORM");
 		String SELENIUM_BROWSER = System.getenv("SELENIUM_BROWSER");
 		String SELENIUM_VERSION = System.getenv("SELENIUM_VERSION");
 
+		/* normally get from environment variables but set defaults for testing */
+		if (SELENIUM_PLATFORM == null)
+		{
+			SELENIUM_PLATFORM = "Linux";
+		}
+
+		if (SELENIUM_BROWSER == null)
+		{
+			SELENIUM_BROWSER = "Firefox";
+		}
+
+		if (SELENIUM_VERSION == null)
+		{
+			SELENIUM_VERSION = "48";
+		}
+
+		TestSettings testSettings = new TestSettings();
+		testSettings.platform = SELENIUM_PLATFORM;
+		testSettings.browserName = SELENIUM_BROWSER;
+		testSettings.browserVersion = SELENIUM_VERSION;
+
 		/* array with only one test settings */
-		List<TestSettings> testSettingsList = new ArrayList<TestSettings>()
-		{{
-			new TestSettings()
-			{{
-				platform = SELENIUM_PLATFORM;
-				browserName = SELENIUM_BROWSER;
-				browserVersion = SELENIUM_VERSION;
-			}};
-		}};
+		List<TestSettings> testSettingsList = new ArrayList<>();
+		testSettingsList.add(testSettings);
 
 		return convertToTestNGDataProvider(testSettingsList);
 	}
