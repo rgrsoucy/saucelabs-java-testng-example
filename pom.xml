@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.saucelabs.examples</groupId>
-    <artifactId>https://github.com/sauceaaron/saucelabs-java-testng-example.git</artifactId>
+    <artifactId>saucelabs-java-testng-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
