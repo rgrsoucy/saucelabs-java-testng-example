@@ -33,7 +33,15 @@ public class SauceTestBase
 	@AfterMethod
 	public void teardown(ITestResult result)
 	{
-		String sessionId = browser.get().getSessionId().toString();
+		RemoteWebDriver browser = this.browser.get();
+
+		/* something happened before we got here so we don't need to clean up */
+		if (browser == null)
+		{
+			return;
+		}
+
+		String sessionId = browser.getSessionId().toString();
 
 		if (result.isSuccess())
 		{
@@ -44,7 +52,7 @@ public class SauceTestBase
 			api.jobFailed(sessionId);
 		}
 
-		browser.get().quit();
+		browser.quit();
 	}
 
 

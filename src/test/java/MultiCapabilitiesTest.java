@@ -1,5 +1,6 @@
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,6 +12,12 @@ public class MultiCapabilitiesTest extends SauceTestBase
 	public void simpleTest(TestSettings settings)
 	{
 		System.out.println("got settings: " + settings);
+
+		// expects SAUCE_ONDEMAND_BROWSERS environment variable to be set
+		if (System.getenv("SAUCE_ONDEMAND_BROWSERS") == null)
+		{
+			throw new SkipException("Test skipped because SAUCE_ONDEMAND_BROWSERS was not set");
+		}
 
 		RemoteWebDriver browser = getBrowser(settings);
 		browser.get("https://saucelabs.com");

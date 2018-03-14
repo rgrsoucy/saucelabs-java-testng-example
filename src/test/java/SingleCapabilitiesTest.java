@@ -1,4 +1,5 @@
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.SkipException;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
@@ -6,11 +7,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SingleCapabilitiesTest extends SauceTestBase
 {
-	// expects SELENIUM_PLATFORM, SELENIUM_BROWSER, SELENIUM_VERSION environment variables to be set
-	@Ignore
 	@Test(dataProviderClass = CapabilitiesDataProvider.class, dataProvider = "getSingleTestSettings")
 	public void simpleTest(TestSettings settings)
 	{
+		// expects SELENIUM_PLATFORM, SELENIUM_BROWSER, SELENIUM_VERSION environment variables to be set
+		if (System.getenv("SELENIUM_BROWSER") == null)
+		{
+			throw new SkipException("Test skipped because SELENIUM_BROWSER was not set");
+		}
+
 		System.out.println("got settings: " + settings);
 
 		RemoteWebDriver browser = getBrowser(settings);
