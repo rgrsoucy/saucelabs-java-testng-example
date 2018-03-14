@@ -13,7 +13,7 @@ public class TestSettings
 	public String os;
 
 	@SerializedName("platform")
-	public String platformName;
+	public String platform;
 
 	@SerializedName("browser")
 	public String browserName;
@@ -30,7 +30,7 @@ public class TestSettings
 	@SerializedName("url")
 	public String url;
 
-	public static Gson parser = new GsonBuilder().disableHtmlEscaping().create();
+	public static Gson parser = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
 	public static List<TestSettings> parseMultiCapabilities(String json)
 	{
