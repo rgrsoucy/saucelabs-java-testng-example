@@ -79,33 +79,33 @@ public abstract class SauceTestBase
 		}
 	}
 
-	public static DesiredCapabilities getDesiredCapabilities(String SELENIUM_PLATFORM, String SELENIUM_BROWSER, String SELENIUM_VERSION, String TEST_NAME, String BUILD_TAG)
+	public static DesiredCapabilities getDesiredCapabilities(String platform, String browserName, String browserVersion, String testName, String buildTag)
 	{
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
-		if (SELENIUM_PLATFORM != null)
+		if (platform != null)
 		{
-			capabilities.setCapability("platform", SELENIUM_PLATFORM);
+			capabilities.setCapability("platform", platform);
 		}
 
-		if (SELENIUM_BROWSER != null)
+		if (browserName != null)
 		{
-			capabilities.setCapability("browserName", SELENIUM_BROWSER);
+			capabilities.setCapability("browserName", browserName);
 		}
 
-		if (SELENIUM_VERSION != null)
+		if (browserVersion != null)
 		{
-			capabilities.setCapability("version", SELENIUM_VERSION);
+			capabilities.setCapability("version", browserVersion);
 		}
 
-		if (TEST_NAME != null)
+		if (testName != null)
 		{
-			capabilities.setCapability("name", TEST_NAME + " on " + SELENIUM_PLATFORM + " " + SELENIUM_BROWSER + " " + SELENIUM_VERSION);
+			capabilities.setCapability("name", testName + " on " + platform + " " + browserName + " " + browserVersion);
 		}
 
-		if (BUILD_TAG != null)
+		if (buildTag != null)
 		{
-			capabilities.setCapability("build", BUILD_TAG);
+			capabilities.setCapability("build", buildTag);
 		}
 
 		return capabilities;

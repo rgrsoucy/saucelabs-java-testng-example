@@ -1,29 +1,29 @@
 [
   {
-    "os": "Mac 10.12",
-    "platform": "Mac 10.12",
+    "os": "Linux",
+    "platform": "Linux",
+    "browser": "chrome",
+    "browser-version": "48",
+    "long-name": "Google Chrome",
+    "long-version": "48.0.2564.97",
+    "url": "sauce-ondemand:?os=Linux&browser=chrome&browser-version=48&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
+  },
+  {
+    "os": "Mac 10.13",
+    "platform": "Mac 10.13",
     "browser": "safari",
-    "browser-version": "10",
+    "browser-version": "11",
     "long-name": "Safari",
-    "long-version": "10.1.",
-    "url": "sauce-ondemand:?os=Mac 10.12&browser=safari&browser-version=10&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
+    "long-version": "11.0.",
+    "url": "sauce-ondemand:?os=Mac 10.13&browser=safari&browser-version=11&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
   },
   {
     "os": "Windows 10",
     "platform": "Windows 10",
-    "browser": "firefox",
+    "browser": "microsoftedge",
     "browser-version": "latest",
-    "long-name": "Firefox",
+    "long-name": "Microsoft Edge",
     "long-version": "latest",
-    "url": "sauce-ondemand:?os=Windows 10&browser=firefox&browser-version=latest&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
-  },
-  {
-    "os": "Windows 2008",
-    "platform": "Windows 2008",
-    "browser": "chrome",
-    "browser-version": "latest",
-    "long-name": "Google Chrome",
-    "long-version": "latest",
-    "url": "sauce-ondemand:?os=Windows 2008&browser=chrome&browser-version=latest&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
+    "url": "sauce-ondemand:?os=Windows 10&browser=microsoftedge&browser-version=latest&username=aaron-evans&access-key=82fda6e5-c020-40a3-8532-f817475ce55a"
   }
 ]
