@@ -52,7 +52,7 @@ public class CapabilitiesDataProvider
 
 		if (SELENIUM_VERSION == null)
 		{
-			SELENIUM_VERSION = "48";
+			SELENIUM_VERSION = "latest";
 		}
 
 		TestSettings testSettings = new TestSettings();
