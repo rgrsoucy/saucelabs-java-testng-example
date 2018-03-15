@@ -53,6 +53,7 @@ public class SauceTestBase
 		}
 
 		browser.quit();
+		this.browser.remove();
 	}
 
 
