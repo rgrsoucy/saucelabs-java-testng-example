@@ -132,4 +132,9 @@ public class SauceTestBase
 	{
 		return new SauceREST(SAUCE_USERNAME, SAUCE_ACCESS_KEY);
 	}
+
+	public void addContext(String text)
+	{
+		browser.get().executeScript("sauce:context=" + text);
+	}
 }
