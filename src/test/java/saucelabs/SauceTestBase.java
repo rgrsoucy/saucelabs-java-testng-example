@@ -1,3 +1,5 @@
+package saucelabs;
+
 import com.saucelabs.saucerest.SauceREST;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -125,6 +127,7 @@ public class SauceTestBase
 			capabilities.setCapability("build", buildTag);
 		}
 
+		capabilities.setCapability("tags", "smoketest,qaenvironment,releaseX,ondate");
 		return capabilities;
 	}
 

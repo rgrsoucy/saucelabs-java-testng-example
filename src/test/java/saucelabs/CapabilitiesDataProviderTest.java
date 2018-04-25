@@ -1,3 +1,5 @@
+package saucelabs;
+
 import java.lang.reflect.Method;
 
 import org.testng.SkipException;

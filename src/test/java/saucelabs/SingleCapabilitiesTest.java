@@ -1,11 +1,14 @@
+package saucelabs;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.SkipException;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import saucelabs.CapabilitiesDataProvider;
+import saucelabs.TestSettings;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SingleCapabilitiesTest extends SauceTestBase
+public class SingleCapabilitiesTest extends saucelabs.SauceTestBase
 {
 	@Test(dataProviderClass = CapabilitiesDataProvider.class, dataProvider = "getSingleTestSettings")
 	public void simpleTest(TestSettings settings)

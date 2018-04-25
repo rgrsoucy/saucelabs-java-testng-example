@@ -1,4 +1,4 @@
-package Gordons;
+package saucelabs;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,6 @@ public class PageObject
 		this.wait = new WebDriverWait(driver, TIMEOUT);
 	}
 
-
 	public WebElement find(By locator)
 	{
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -34,4 +33,6 @@ public class PageObject
 	{
 		find(locator).sendKeys(text);
 	}
+
+	public String title() { return driver.getTitle(); }
 }

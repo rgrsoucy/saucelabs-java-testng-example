@@ -1,11 +1,14 @@
-import org.openqa.selenium.remote.DesiredCapabilities;
+package saucelabs;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
+import saucelabs.CapabilitiesDataProvider;
+import saucelabs.TestSettings;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MultiCapabilitiesTest extends SauceTestBase
+public class MultiCapabilitiesTest extends saucelabs.SauceTestBase
 {
 	// expects SAUCE_ONDEMAND_BROWSERS environment variable to be set
 	@Test(dataProviderClass = CapabilitiesDataProvider.class, dataProvider = "getMultipleTestSettings")

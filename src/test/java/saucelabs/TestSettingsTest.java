@@ -1,6 +1,10 @@
+package saucelabs;
+
 import java.io.IOException;
 import java.util.List;
 import org.testng.annotations.Test;
+import saucelabs.FileLoader;
+import saucelabs.TestSettings;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,7 @@
+package saucelabs;
+
 import org.testng.annotations.DataProvider;
+import saucelabs.TestSettings;
 
 import java.io.IOException;
 import java.util.ArrayList;
